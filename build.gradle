@@ -11,7 +11,7 @@ buildscript {
 apply plugin: 'com.android.application'
 
 android {
-    namespace 'com.ipank.loader' 
+    namespace 'com.ipank.loader'
     compileSdk 34
 
     defaultConfig {
@@ -24,8 +24,9 @@ android {
 
     sourceSets {
         main {
+            // MANTRA SAKTI: Robot bakal nyari file langsung di depan mata
             manifest.srcFile 'AndroidManifest.xml'
-            java.srcDirs = ['.']
+            java.srcDirs = ['.'] 
             res.srcDirs = []
         }
     }
