@@ -10,12 +10,17 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
       - name: Rakit APK Sultan
-        run: gradle assembleDebug
+        run: |
+          mkdir -p app/src/main/java/com/ipank/loader
+          cp MainActivity.java app/src/main/java/com/ipank/loader/
+          cp AndroidManifest.xml app/src/main/
+          mkdir -p app/src/main/res/layout
+          echo '<?xml version="1.0" encoding="utf-8"?><LinearLayout xmlns:android="http://android.com" android:layout_width="match_parent" android:layout_height="match_parent" />' > app/src/main/res/layout/activity_main.xml
+          gradle assembleDebug
       - name: Upload Hasil APK
         uses: actions/upload-artifact@v4
         with:
           name: Ipank-Loader-Sultan
           path: "**/*.apk"
+          
