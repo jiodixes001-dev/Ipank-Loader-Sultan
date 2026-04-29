@@ -11,6 +11,7 @@ buildscript {
 apply plugin: 'com.android.application'
 
 android {
+    namespace 'com.ipank.loader' 
     compileSdk 34
 
     defaultConfig {
